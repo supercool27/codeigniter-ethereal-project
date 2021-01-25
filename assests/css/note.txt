@@ -1,0 +1,1 @@
+style.css is for the admin dashboard.
