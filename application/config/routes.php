@@ -12,3 +12,17 @@ $route['about-us'] = 'base/about_us';
 //
 $route['login'] = 'base/login';
 $route['register'] = 'base/register';
+$route['registeration'] ='base/create';
+
+
+
+//
+
+
+$route['dashboard/comment'] = 'CommentController/index';
+$route['dashboard/comment/create'] = 'CommentController/create';
+$route['dashboard/comment/store'] = 'CommentController/store';
+$route['dashboard/comment/edit/(:any)'] = 'CommentController/edit/$1';
+$route['dashboard/comment/update'] = 'CommentController/update';
+$route['dashboard/comment/view/(:any)'] = 'CommentController/view/$1';
+$route['dashboard/comment/delete'] = 'CommentController/delete';

@@ -20,7 +20,9 @@ class Auth extends CI_Controller
   //
   public function register()
   {
-    die("register");
+    $data[] = [];
+    $data['content'] = $this->load->view('auth/register', $data, true);
+    return $this->load->view('auth/_layouts/main',$data);
   }
 
 }
