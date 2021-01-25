@@ -1,23 +1,40 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 col-md-6 mx-md-auto">
+
+      <?php if (validation_errors()): ?>
+        <div class="alert bg-danger text-white">
+          <h5>Errors ;( </h5>
+          <p><?= validation_errors(); ?></p>
+        </div>
+      <?php endif; ?>
+
+      <?php if ( isset($errors) && (bool) count($errors) ): ?>
+        <div class="alert bg-danger text-white">
+          <h5>Errors ;( </h5>
+          <ul>
+            <?php foreach ($errors as $error): ?>
+              <li><?= $error; ?></li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+      <?php endif; ?>
+
       <h1>Login</h1>
       <?= form_open('login'); ?>
-      <span class="text-danger"> <?php echo $this->session->flashdata("error"); ?></span>  
-      <div class="form-group">
-          <label for="">Email / Mobile Number </label>
-          <input type="email" value="<?php echo set_value('email_id');?>"  class="form-control" placeholder="Please Enter your email" />
-          <small style="color:red;"> <?php echo form_error('email_id') ?> </small>
+        <div class="form-group">
+          <label>Email </label>
+          <input type="email" class="form-control" placeholder="Provide your Email Address" name="email" value="<?= set_value('email');?>" required />
         </div>
         <div class="form-group">
-          <label for=""> Password </label>
-          <input value="<?php echo set_value('password'); ?>" type="password" class="form-control" placeholder="password" />
-          <small style="color:red;"> <?php echo form_error('password'); ?> </small>
+          <label> Password </label>
+          <input type="password" class="form-control" placeholder="Provide your Account Password" name="password" required />
         </div>
         <div class="form-group">
-          <label for=""></label>
-          <button type="submit" class="btn btn-primary" value="login">Login </button>
-        <div>
+          <button type="submit" class="btn btn-primary">
+            Login
+          </button>
+        </div>
       <?= form_close(); ?>
     </div>
   </div>
